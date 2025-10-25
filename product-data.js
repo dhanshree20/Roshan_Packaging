@@ -258,18 +258,16 @@ const products = {
   },
   12: {
     id: 12,
-    name: "PharmaCell Tape",
+    name: "Permacel P-254 Tape",
     category: "Packaging",
-    type: "PharmaCell",
+    type: "Permacel P-254",
     image: "Final/PACKAGING/PARMACELL/1.jpg",
-    description: "Specialized pharmaceutical grade adhesive tape meeting strict pharmaceutical industry standards. Designed for sterile and sensitive packaging requirements. Ideal for medical, pharmaceutical, and food packaging applications.",
+    description: "Permacel P-254  - are primarily used for paint testing. A process of testing the adhesive strength of any paint by making use of such kind of a tape in the process.",
     features: [
-      "Pharmaceutical grade",
-      "Sterile compatible",
-      "Medical standard compliant",
-      "Non-toxic adhesive",
-      "Gentle on sensitive products",
-      "Industry certified"
+      "Uniform adhesion strength ensures consistent and repeatable test results.",
+      "Clean removal without leaving residue, preserving the integrity of the painted surface.",
+      "Smooth polyester film backing allows precise cutting and easy application.",
+      "Stable tack and peel strength that meets standardized paint adhesion test requirements (e.g., ASTM D3359).",
     ],
     specifications: {
       width: "24mm, 48mm",
