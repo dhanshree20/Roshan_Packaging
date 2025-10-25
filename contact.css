@@ -1,0 +1,919 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: "Saira", sans-serif; 
+    color: #333;
+    background-color: #f5f5f5;
+}/* NAVBAR BASE */
+/* Navbar */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem 3rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: "Arimo", sans-serif;
+}
+.navbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(179, 0, 0, 0.9) 88%, rgba(179, 0, 0, 0) 89%);
+  z-index: -1;
+}
+
+/* Navbar container */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Brand logo */
+.navbar .brand-logo {
+  height: 70px;
+  width: auto;
+}
+
+/* Brand text */
+.navbar .brand-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Nav Links */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  flex: 0;
+  gap: 2rem;
+  margin-right: 140px;
+  transition: all 0.4s ease;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #e07b17;
+}
+
+/* Search Bar */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-search input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.nav-search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d01313;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-search button i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.nav-search button:hover {
+  background-color: #a50e0e;
+}
+
+/* -------------------- MOBILE VIEW -------------------- */
+/* --- FIX HAMBURGER VISIBILITY AND LAYERING --- */
+@media (max-width: 768px) {
+  /* Brand responsive */
+  .navbar .brand {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    margin-right: auto;
+  }
+
+  .navbar .brand-logo {
+    height: 50px;
+  }
+
+  .navbar .brand-text {
+    font-size: 16px;
+  }
+
+  /* Make sure hamburger is above the red overlay */
+/* --- FIX HAMBURGER VISIBILITY --- */
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #333;
+    z-index: 9999;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger i {
+    color: #333;
+  }
+
+  .navbar .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+    background: rgba(179, 0, 0, 0.97);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0;
+    transition: right 0.4s ease-in-out;
+    z-index: 2500;
+    padding-top: 100px;
+  }
+
+  .navbar .nav-links.open {
+    right: 0;
+  }
+
+
+
+  /* Fix container layout */
+  .navbar .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  .nav-links li a {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  /* Change icon to close (X) when active */
+  .hamburger.active i::before {
+    content: "\f00d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+
+/* Hide hamburger in desktop */
+.hamburger {
+  display: none;
+}
+
+/* ------------------- DROPDOWN MENU ------------------- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  list-style: none;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 3000;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  color: #333 !important;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(179, 0, 0, 0.1);
+  color: #d01313 !important;
+}
+
+/* Show dropdown on hover - desktop only */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* --- MOBILE DROPDOWN --- */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-menu li a {
+    color: #fff !important;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .dropdown-toggle i {
+    margin-left: 6px;
+  }
+
+   .dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-toggle {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+/* CONTACT HERO SECTION */
+.contact-hero {
+  position: relative;
+  height: 90vh;
+  background: url('images/contact.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Red angled overlay */
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(179, 0, 0, 0.6) 60%, 
+    rgba(179, 0, 0, 0) 61%
+  );
+  z-index: 1;
+}
+
+/* Hero content */
+
+.contact-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 600px;
+  margin-left: 5%;
+}
+
+.contact-hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-hero p {
+  font-size: 1.1rem;
+  max-width: 450px;
+  color: #ffcccc;
+}
+
+/* =============================== */
+/* 📱 Extra small devices (phones) */
+/* =============================== */
+@media (max-width: 320px) {
+  .contact-hero {
+    height: 70vh;
+    text-align: center;
+  }
+
+  .contact-hero .hero-content {
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-hero p {
+    font-size: 0.85rem;
+  }
+}
+
+/* =============================== */
+/* 📱 Small devices (phones) */
+/* =============================== */
+@media (max-width: 480px) {
+  .contact-hero {
+    height: 70vh;
+    text-align: center;
+  }
+
+  .contact-hero .hero-content {
+    margin: 0 auto;
+    padding: 0 1.2rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-hero p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =============================== */
+/* 📱 Medium devices (phones) */
+/* =============================== */
+@media (max-width: 576px) {
+  .contact-hero {
+    height: 65vh;
+  }
+
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-hero p {
+    font-size: 0.95rem;
+  }
+}
+
+/* =============================== */
+/* 📱 Large phones */
+/* =============================== */
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 60vh;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-hero::before {
+    width: 100%;
+    /* background: rgba(179, 0, 0, 0.85); */
+    clip-path: none;
+  }
+
+  .contact-hero .hero-content {
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-hero p {
+    font-size: 1rem;
+  }
+}
+
+/* =============================== */
+/* 💻 Tablets (portrait + landscape) */
+/* =============================== */
+@media (max-width: 992px) {
+  .contact-hero {
+    height: 70vh;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .contact-hero p {
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+/* =============================== */
+/* 💻 Smaller desktops / laptops */
+/* =============================== */
+@media screen and (max-width: 1152px) {
+  .contact-hero {
+    height: 75vh;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.6rem;
+  }
+}
+
+/* =============================== */
+/* 🖥 Large desktops (1440px) */
+/* =============================== */
+@media screen and (max-width: 1440px) {
+  .contact-hero {
+    height: 80vh;
+  }
+
+  .contact-hero .hero-content {
+    margin-left: 8%;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.8rem;
+  }
+}
+
+
+/* Contact Section */
+
+.contact-section {
+    padding: 80px 20px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* ✅ ensures equal height for all cards */
+  gap: 20px;
+}
+.contact-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ✅ vertically center text */
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 250px; /* ✅ gives consistent height */
+}
+
+
+/* Contact Info Cards */
+.contact-info {
+    flex: 1 1 300px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.contact-info i {
+    font-size: 28px;
+    color: #d01313;
+    background: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.contact-info h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-info p, .contact-info a {
+    color: #374151;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+
+
+/* CONTACT SECTION LAYOUT */
+.contact-section {
+  padding: 80px 20px;
+  background: #f8f8f8;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* CONTACT FORM */
+.contact-form {
+  flex: 1 1 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-form h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #d01313;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  font-family: 'Saira';
+}
+
+.contact-form button {
+  background: #d01313;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #a50e0e;
+}
+
+/* MAP CONTAINER */
+.map-container {
+  flex: 1 1 500px;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* ✅ Desktop layout for contact info cards */
+@media (min-width: 769px) {
+  .contact-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 1200px;
+  }
+
+  .contact-info {
+    flex: 1;
+    max-width: 350px;
+  }
+}
+
+
+
+/* FOOTER */
+
+
+footer {
+  background: #111;
+  color: white;
+  padding: 60px 8%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 50px;
+  align-items: start;
+}
+
+/* Column 1: Logo + tagline */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-brand-logo {
+  width: 120px;
+  border-radius: 10px;
+}
+.footer-logo p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Quick Links */
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color: #ff4d4d;
+}
+
+/* Contact Info */
+.footer-contact p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* Social Media Icons in White Pills */
+.footer-social .social-pill-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-social .social-pill-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #a00000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+.footer-social .social-pill-container a:hover {
+  background: #ff4d4d;
+  color: white;
+  transform: translateY(-3px);
+}
+/* Footer Product Grid */
+.footer-products h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.product-grid img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #fff;
+  padding: 3px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  color: #777;
+  font-size: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-social .social-pill-container {
+    justify-content: center;
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 600px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+  .whatsapp-float img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Medium devices (Tablets) */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Small devices (Mobiles) */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: left; /* left align for mobile */
+  }
+
+  .footer-logo,
+  .footer-links,
+  .footer-contact {
+    text-align: left;
+  }
+
+  .footer-social .social-pill-container {
+    justify-content: flex-start;
+  }
+}
+
+/* Extra Small Devices (Phones under 480px) */
+@media (max-width: 480px) {
+  footer {
+    padding: 40px 6%;
+  }
+
+  .footer-brand-logo {
+    width: 100px;
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 18px;
+  }
+
+  .footer-links ul li a,
+  .footer-contact p {
+    font-size: 16px;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .whatsapp-float img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =======================================================
+   🔧 UNIVERSAL FIX: Remove unwanted horizontal scrollbars
+   Works for all sections & all screen sizes
+======================================================= */
+
+/* Prevent body from scrolling horizontally */
+html, body {
+  width: 100%;
+  overflow-x: hidden;  /* ✅ No horizontal scrollbar anywhere */
+}

@@ -1,0 +1,444 @@
+/* PRODUCT DETAIL PAGE */
+
+/* Product Detail Section */
+.product-detail-section {
+  padding: 100px 20px 60px 20px;
+  background: #f9f9f9;
+  min-height: calc(100vh - 200px);
+  margin-top: 0;
+}
+
+.product-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Product Image */
+.product-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Product Info */
+.product-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* Product Name */
+.product-info-wrapper h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Category and Type */
+.product-category,
+.product-type {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Section Headings */
+.product-info-wrapper h3 {
+  font-size: 1.2rem;
+  margin: 20px 0 10px 0;
+  color: #ff4d4d;
+  font-weight: 600;
+}
+
+/* Description */
+.product-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+}
+
+/* Features List */
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-features li {
+  padding: 8px 0 8px 25px;
+  color: #555;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.product-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+/* Yes I'm Interested Button */
+.btn-interested {
+  display: inline-block;
+  background: #ff4d4d;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.btn-interested:hover {
+  background: #e63939;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(255, 77, 77, 0.3);
+}
+
+/* RESPONSIVE - LARGE SCREENS (1440px and below) */
+@media screen and (max-width: 1440px) {
+  .product-detail-section {
+    padding: 80px 20px 60px 20px;
+  }
+
+  .product-detail-container {
+    max-width: 1100px;
+    gap: 40px;
+    padding: 35px;
+  }
+
+  .product-image-wrapper {
+    min-height: 450px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* RESPONSIVE - MEDIUM SCREENS (1152px and below) */
+@media screen and (max-width: 1152px) {
+  .product-detail-container {
+    max-width: 1000px;
+    gap: 35px;
+    padding: 30px;
+  }
+
+  .product-image-wrapper {
+    min-height: 400px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 2rem;
+  }
+
+  .product-features li {
+    font-size: 0.9rem;
+  }
+}
+
+/* RESPONSIVE - TABLETS (992px and below) */
+@media (max-width: 992px) {
+  .product-detail-section {
+    padding: 70px 20px 50px 20px;
+  }
+
+  .product-detail-container {
+    max-width: 100%;
+    gap: 30px;
+    padding: 25px;
+  }
+
+  .product-image-wrapper {
+    min-height: 350px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 1.9rem;
+  }
+
+  .product-info-wrapper h3 {
+    font-size: 1.15rem;
+  }
+
+  .product-description {
+    font-size: 1rem;
+  }
+
+  .btn-interested {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+}
+
+/* RESPONSIVE - TABLET (768px and below) */
+@media (max-width: 768px) {
+  .product-detail-section {
+    padding: 60px 15px 50px 15px;
+    min-height: calc(100vh - 150px);
+  }
+
+  .product-detail-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .product-image-wrapper {
+    min-height: 300px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-info-wrapper {
+    gap: 18px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .product-category,
+  .product-type {
+    font-size: 0.9rem;
+  }
+
+  .product-info-wrapper h3 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+
+  .product-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .product-features li {
+    font-size: 0.9rem;
+    padding: 6px 0 6px 20px;
+  }
+
+  .btn-interested {
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: fit-content;
+  }
+}
+
+/* RESPONSIVE - MEDIUM PHONES (576px and below) */
+@media (max-width: 576px) {
+  .product-detail-section {
+    padding: 50px 12px 40px 12px;
+  }
+
+  .product-detail-container {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .product-image-wrapper {
+    min-height: 250px;
+    border-radius: 10px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .product-category,
+  .product-type {
+    font-size: 0.85rem;
+  }
+
+  .product-info-wrapper h3 {
+    font-size: 1rem;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .product-features {
+    margin: 0;
+  }
+
+  .product-features li {
+    font-size: 0.85rem;
+    padding: 5px 0 5px 18px;
+  }
+
+  .btn-interested {
+    padding: 11px 24px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
+}
+
+/* RESPONSIVE - SMALL PHONES (480px and below) */
+@media (max-width: 480px) {
+  .product-detail-section {
+    padding: 45px 10px 35px 10px;
+    min-height: calc(100vh - 120px);
+  }
+
+  .product-detail-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  }
+
+  .product-image-wrapper {
+    min-height: 200px;
+    border-radius: 8px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-top: 40px;
+  }
+
+  .product-image-wrapper:hover .product-image {
+    transform: scale(1.02);
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .product-category,
+  .product-type {
+    font-size: 0.8rem;
+    margin: 2px 0;
+  }
+
+  .product-info-wrapper h3 {
+    font-size: 0.95rem;
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+
+  .product-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .product-features {
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-features li {
+    font-size: 0.8rem;
+    padding: 4px 0 4px 16px;
+    line-height: 1.4;
+  }
+
+  .product-features li:before {
+    font-size: 0.9rem;
+  }
+
+  .btn-interested {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  .btn-interested:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* RESPONSIVE - EXTRA SMALL PHONES (320px and below) */
+@media (max-width: 320px) {
+  .product-detail-section {
+    padding: 40px 8px 30px 8px;
+  }
+
+  .product-detail-container {
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .product-image-wrapper {
+    min-height: 180px;
+  }
+
+  .product-info-wrapper h1 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .product-category,
+  .product-type {
+    font-size: 0.75rem;
+  }
+
+  .product-info-wrapper h3 {
+    font-size: 0.9rem;
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+  .product-description {
+    font-size: 0.8rem;
+  }
+
+  .product-features li {
+    font-size: 0.75rem;
+    padding: 3px 0 3px 14px;
+  }
+
+  .btn-interested {
+    padding: 9px 16px;
+    font-size: 0.85rem;
+  }
+}
+

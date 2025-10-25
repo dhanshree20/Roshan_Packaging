@@ -1,0 +1,1152 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: "Saira", sans-serif; 
+    color: #333;
+    background-color: #f5f5f5;
+}/* NAVBAR BASE */
+/* Navbar */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem 3rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: "Arimo", sans-serif;
+}
+.navbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(179, 0, 0, 0.9) 88%, rgba(179, 0, 0, 0) 89%);
+  z-index: -1;
+}
+
+/* Navbar container */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Brand logo */
+.navbar .brand-logo {
+  height: 70px;
+  width: auto;
+}
+
+/* Brand text */
+.navbar .brand-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Nav Links */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  flex: 0;
+  gap: 2rem;
+  margin-right: 140px;
+  transition: all 0.4s ease;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #e07b17;
+}
+
+/* Search Bar */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-search input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.nav-search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d01313;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-search button i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.nav-search button:hover {
+  background-color: #a50e0e;
+}
+
+/* -------------------- MOBILE VIEW -------------------- */
+/* --- FIX HAMBURGER VISIBILITY AND LAYERING --- */
+@media (max-width: 768px) {
+  /* Brand responsive */
+  .navbar .brand {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    margin-right: auto;
+  }
+
+  .navbar .brand-logo {
+    height: 50px;
+  }
+
+  .navbar .brand-text {
+    font-size: 16px;
+  }
+
+  /* Make sure hamburger is above the red overlay */
+/* --- FIX HAMBURGER VISIBILITY --- */
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #333;
+    z-index: 9999;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger i {
+    color: #333;
+  }
+
+  .navbar .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+    background: rgba(179, 0, 0, 0.97);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0;
+    transition: right 0.4s ease-in-out;
+    z-index: 2500;
+    padding-top: 100px;
+  }
+
+  .navbar .nav-links.open {
+    right: 0;
+  }
+
+
+
+  /* Fix container layout */
+  .navbar .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  .nav-links li a {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  /* Change icon to close (X) when active */
+  .hamburger.active i::before {
+    content: "\f00d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+
+/* Hide hamburger in desktop */
+.hamburger {
+  display: none;
+}
+
+/* ------------------- DROPDOWN MENU ------------------- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  list-style: none;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 3000;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  color: #333 !important;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(179, 0, 0, 0.1);
+  color: #d01313 !important;
+}
+
+/* Show dropdown on hover - desktop only */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* --- MOBILE DROPDOWN --- */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-menu li a {
+    color: #fff !important;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .dropdown-toggle i {
+    margin-left: 6px;
+  }
+
+   .dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-toggle {
+    justify-content: center;
+  }
+}
+
+
+
+
+/* HERO SECTION */
+.about-hero-about {
+  position: relative;
+  height: 90vh;
+  background: url('images/aboutHero.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* Red angled overlay */
+.about-hero-about::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 65%;
+  height: 100%;
+    background: linear-gradient(
+    135deg, 
+    rgba(179, 0, 0, 0.6) 60%,  /* 0.5 = 50% transparency */
+    rgba(179, 0, 0, 0) 61%
+  );
+  z-index: 1;
+}
+
+/* Overlay content container */
+.hero-overlay-about {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 600px;
+  margin-left: 5%;
+}
+
+/* Text styling */
+.hero-text-about h4 {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #ffb3b3;
+}
+
+.hero-text-about h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text-about h1 span {
+  color: #fff;
+  font-weight: 800;
+}
+
+.hero-text-about p {
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #fff;
+  color: #b30000;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e07b17;
+  color: #fff;
+}
+
+/* =============================
+      RESPONSIVE DESIGN
+============================= */
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 320px) {
+  .about-hero-about {
+    height: 70vh;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-hero-about::before {
+    width: 100%;
+    background: rgba(179, 0, 0, 0.85);
+    clip-path: none;
+  }
+  .hero-overlay-about {
+    margin: 0;
+    padding: 0 1rem;
+  }
+  .hero-text-about h1 {
+    font-size: 1.8rem;
+  }
+  .hero-text-about p {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  .hero-text-about h1 {
+    font-size: 2rem;
+  }
+  .hero-text-about p {
+    font-size: 1rem;
+  }
+}
+
+/* Medium devices (phones) */
+@media (max-width: 576px) {
+  .about-hero-about {
+    height: 70vh;
+  }
+  .hero-text-about h1 {
+    font-size: 2.2rem;
+  }
+  .hero-text-about p {
+    font-size: 1rem;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .about-hero-about {
+    height: 70vh;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-hero-about::before {
+    width: 100%;
+    /* background: rgba(179, 0, 0, 0.85); */
+    clip-path: none;
+  }
+  .hero-overlay-about {
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+  .hero-text-about h1 {
+    font-size: 2.4rem;
+  }
+  .hero-text-about p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets (portrait + landscape) */
+@media (max-width: 992px) {
+  .about-hero-about {
+    height: 80vh;
+  }
+  .hero-text-about h1 {
+    font-size: 2.8rem;
+  }
+  .hero-text-about p {
+    font-size: 1.05rem;
+  }
+}
+
+/* Medium desktops */
+@media screen and (max-width: 1152px) {
+  .about-hero-about {
+    height: 85vh;
+  }
+  .hero-text-about h1 {
+    font-size: 2.9rem;
+  }
+}
+
+/* Large desktops */
+@media screen and (max-width: 1440px) {
+  .about-hero-about {
+    height: 90vh;
+  }
+}
+
+/* ABOUT PAGE */
+.about-section {
+  padding: 100px 20px;
+  background: #fafafa;
+}
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+.about-text h2 {
+  color: #000;
+  font-size: 40px ;
+  margin-bottom: 20px;
+}
+.about-text p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+.about-image img {
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* ------------------------------ */
+/* ✅ RESPONSIVE DESIGN */
+/* ------------------------------ */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 80px 30px;
+  }
+
+  .about-text h2 {
+    font-size: 34px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+  }
+
+  .about-image img {
+    max-width: 380px;
+  }
+}
+
+/* Mobile L (large phones, ~425–768px) */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 90%;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .about-image img {
+    max-width: 350px;
+  }
+}
+
+/* Mobile M (medium phones, ~375–424px) */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 60px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+
+  .about-image img {
+    max-width: 300px;
+  }
+}
+
+/* Mobile S (small phones, ~320–374px) */
+@media (max-width: 375px) {
+  .about-section {
+    padding: 50px 15px;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 13px;
+  }
+
+  .about-image img {
+    max-width: 270px;
+  }
+}
+
+
+/* Mission Vission Section  */
+
+.mission-vision-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+}
+
+
+.subtitle {
+  color: #000 ;
+  
+  font-size:40px;
+}
+
+
+.content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 0px;
+  align-items: stretch;
+}
+
+.card {
+  flex: 1 1 300px;
+  border-radius: 20px;
+  padding: 30px;
+  min-height: 350px;
+}
+
+.vision {
+  background-color: #8B1C13 ;
+  text-align: left;
+}
+
+.mission {
+  background-color: #8B1C13 ;
+  text-align: left;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.card h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #fff;
+  
+}
+
+.card p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #e4e4e4;
+ 
+}
+
+    @media (max-width: 1024px) {
+      .subtitle {
+        font-size: 36px;
+      }
+
+      .card h2 {
+        font-size: 28px;
+      }
+
+      .card p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 100%;
+        margin-bottom: 20px;
+        min-height: auto;
+      }
+      .card.image {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .subtitle {
+        font-size: 28px;
+      }
+
+      .card h2 {
+        font-size: 24px;
+      }
+
+      .card p {
+        font-size: 15px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .subtitle {
+        font-size: 24px;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      .card p {
+        font-size: 14px;
+      }
+    }
+
+/* Highlight active link in navbar */
+.nav-links .active-link {
+  color: #e07b17;
+}
+/* ABOUT PAGE CTA SECTION */
+.about-cta {
+  position: relative;
+  height: 50vh;
+  background: url('images/cta.jpeg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 0; /* optional if you want full width */
+}
+
+/* Blurred overlay */
+.about-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.cta-content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cta-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+.about-cta .btn-primary {
+  background: #a00000;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.about-cta .btn-primary:hover {
+  background: #c00000;
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVENESS ---------- */
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 320px) {
+  .about-cta {
+    height: 60vh;
+  }
+
+  .cta-content h2 {
+    font-size: 22px;
+  }
+
+  .cta-content p {
+    font-size: 13px;
+  }
+
+  .about-cta .btn-primary {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  .about-cta {
+    height: 60vh;
+  }
+
+  .cta-content h2 {
+    font-size: 26px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .about-cta .btn-primary {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}
+
+/* Medium devices (phones) */
+@media (max-width: 576px) {
+  .cta-content {
+    max-width: 90%;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  .cta-content p {
+    font-size: 15px;
+  }
+}
+
+/* Large phones (latest iPhones, Androids) */
+@media (max-width: 768px) {
+  .about-cta {
+    height: 55vh;
+  }
+
+  .cta-content h2 {
+    font-size: 32px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+}
+
+/* Tablets (portrait + landscape) */
+@media (max-width: 992px) {
+  .about-cta {
+    height: 50vh;
+  }
+
+  .cta-content h2 {
+    font-size: 36px;
+  }
+
+  .cta-content p {
+    font-size: 17px;
+  }
+}
+
+/* Small desktop */
+@media screen and (max-width: 1152px) {
+  .cta-content {
+    padding: 0 30px;
+  }
+}
+
+/* Large desktop */
+@media screen and (max-width: 1440px) {
+  .cta-content h2 {
+    font-size: 38px;
+  }
+}
+
+
+/* FOOTER */
+
+footer {
+  background: #111;
+  color: white;
+  padding: 60px 8%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 50px;
+  align-items: start;
+}
+
+/* Column 1: Logo + tagline */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-brand-logo {
+  width: 120px;
+  border-radius: 10px;
+}
+.footer-logo p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Quick Links */
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color: #ff4d4d;
+}
+
+/* Contact Info */
+.footer-contact p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* Social Media Icons in White Pills */
+.footer-social .social-pill-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-social .social-pill-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #a00000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+.footer-social .social-pill-container a:hover {
+  background: #ff4d4d;
+  color: white;
+  transform: translateY(-3px);
+}
+/* Footer Product Grid */
+.footer-products h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.product-grid img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #fff;
+  padding: 3px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  color: #777;
+  font-size: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-social .social-pill-container {
+    justify-content: center;
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 600px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+  .whatsapp-float img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Medium devices (Tablets) */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Small devices (Mobiles) */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: left; /* left align for mobile */
+  }
+
+  .footer-logo,
+  .footer-links,
+  .footer-contact {
+    text-align: left;
+  }
+
+  .footer-social .social-pill-container {
+    justify-content: flex-start;
+  }
+}
+
+/* Extra Small Devices (Phones under 480px) */
+@media (max-width: 480px) {
+  footer {
+    padding: 40px 6%;
+  }
+
+  .footer-brand-logo {
+    width: 100px;
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 18px;
+  }
+
+  .footer-links ul li a,
+  .footer-contact p {
+    font-size: 16px;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .whatsapp-float img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+
+/* =======================================================
+   🔧 UNIVERSAL FIX: Remove unwanted horizontal scrollbars
+   Works for all sections & all screen sizes
+======================================================= */
+
+/* Prevent body from scrolling horizontally */
+html, body {
+  width: 100%;
+  overflow-x: hidden;  /* ✅ No horizontal scrollbar anywhere */
+}

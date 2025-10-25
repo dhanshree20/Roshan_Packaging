@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Roshan Packaging</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://unpkg.com/feather-icons"></script>
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="about.css">
+   <!-- Correct Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+ 
+</head>
+<body>
+
+<!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand">
+        <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="brand-logo">
+        <span class="brand-text">Roshan Packaging</span>
+      </a>
+
+      <!-- Hamburger Icon (Mobile Only) -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="products.html" class="dropdown-toggle" id="productToggle">Product <i
+              class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search Bar -->
+      <div class="nav-search">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Toggle mobile menu open/close
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Product dropdown for mobile
+    const productToggle = document.getElementById('productToggle');
+    const dropdown = productToggle.parentElement;
+
+    productToggle.addEventListener('click', (e) => {
+      // Prevent normal link on mobile
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  </script>
+
+
+
+
+<script>const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled'); // sticky full-width
+  } else {
+    navbar.classList.remove('scrolled'); // back to floating
+  }
+});</script>
+
+
+<!-- HERO SECTION -->
+<section class="about-hero-about">
+  <div class="hero-overlay-about">
+    <div class="hero-text-about">
+      <h4>ABOUT US</h4>
+      <h1>Experience <br><span>Speaks for Itself!</span></h1>
+      <p>
+        At Roshan Packaging, we believe every bond tells a story — one of trust, strength, and reliability.
+      </p>
+      <a href="products.html" class="btn-primary">Our Products</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Roshan Packaging</h2>
+      <p>
+       About Us
+
+Established in 2000 by Mr. Roshan Shah, Roshan Packaging is a leading manufacturer, converter, and die-cut solutions provider based in Pune, Maharashtra, India. With over two decades of industry experience, we have built a strong presence across diverse sectors including solar, paper, packaging, printing, automotive, white goods, label, and wire harness industries.
+
+<br>At Roshan Packaging, we are committed to delivering high-performance adhesive and die-cut solutions that meet the precise requirements of industrial applications. Our products are engineered for superior adhesion, durability, and consistency — ensuring optimal performance under demanding operational conditions.
+
+<br>Driven by quality, reliability, and continuous innovation, we employ advanced manufacturing processes and stringent quality control systems to meet global standards and customer expectations.
+
+Over the years, Roshan Packaging has become a trusted partner to businesses across India by offering customized solutions, timely delivery, and dedicated technical support. Our focus remains on building long-term relationships grounded in trust, performance, and value.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="images/about2.jpg" alt="Our Team">
+    </div>
+  </div>
+</section>
+
+<!-- Mission Vission Section -->
+
+  <div class="mission-vision-container">
+    <h1 class="subtitle">Our Mission And Vision</h1>
+    <!-- <p class="title">At Suthar Ramchandra Jaiswal Tech Pvt. Ltd., we blend traditional craftsmanship with modern innovation to deliver high-precision, reliable machines.</p> -->
+
+    <div class="content">
+      <div class="card vision">
+        <h2>Our Vision</h2>
+        <p>
+          
+
+To be the preferred adhesive solutions partner by empowering our customers with reliable, innovative, and high-performance self-adhesive
+ tapes that add value to their business and help them achieve operational excellence.
+        </p>
+      </div>
+
+      <div class="card image">
+        <img src="Final/PACKAGING/BOPP/Transparent/1.jpg" alt="Doctor Team" />
+      </div>
+
+      <div class="card mission">
+        <h2>Our Mission</h2>
+        <p>At Roshan Packaging, our mission is to provide high-quality, reliable, and customized adhesive solutions that empower our customers to enhance their productivity and efficiency. We are dedicated to delivering consistent performance, timely service, and innovative products through advanced manufacturing practices — 
+          building long-term partnerships based on trust, transparency, and mutual growth.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    //Script
+// mission Vision Section
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".vision", {
+  scrollTrigger: {
+    trigger: ".vision",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  x: -100,
+  duration: 1
+});
+
+gsap.from(".image", {
+  scrollTrigger: {
+    trigger: ".image",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  scale: 0.8,
+  opacity: 0,
+  duration: 1
+});
+
+gsap.from(".mission", {
+  scrollTrigger: {
+    trigger: ".mission",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  x: 100,
+  duration: 1
+});
+  </script>
+
+
+
+
+<!-- ABOUT PAGE CTA SECTION -->
+<section class="about-cta">
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <h2>Let’s Build Strong Bonds Together</h2>
+    <p>From industrial packaging to everyday use — Roshan Packaging delivers adhesive solutions you can trust.</p>
+    <button class="btn-primary">Get in Touch</button>
+  </div>
+</section>
+
+
+<!-- Footer  -->
+
+  <footer>
+    <div class="footer-content">
+
+      <!-- Column 1: Logo & Tagline -->
+      <div class="footer-logo">
+        <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="footer-brand-logo">
+        <p>Premium adhesive and packaging solutions for home and industry since 2000.</p>
+        <div class="footer-social">
+
+          <div class="social-pill-container">
+            <a href="#"><i data-feather="facebook"></i></a>
+            <a href="#"><i data-feather="twitter"></i></a>
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Column 4: Products -->
+      <div class="footer-links">
+        <h4>Our Products</h4>
+        <ul>
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+      </div>
+      <!-- Column 3: Contact Info -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><strong>Address:</strong> G-20, Paresh Industrial Estate, Shankarsheth Road, Pune-411037, India</p>
+        <p><strong>Email:</strong> sales@roshanpackaging.com</p>
+        <p><strong>Phone:</strong> +91 9370099995 </p>
+        <p><strong>Phone:</strong> +91 7385190995</p>
+      </div>
+
+
+
+
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Roshan Packaging. All rights reserved. <br>Developed by DW Innovation Pvt. Ltd.
+    </p>
+  </footer>
+
+
+
+
+  <a href="https://wa.me/7385190995" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" />
+  </a>
+  <script>
+    feather.replace();
+  </script>
+
+  <!-- Product Data and Search Scripts -->
+  <script src="product-data.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

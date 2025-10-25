@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | Roshan Packaging</title>
+  <link rel="stylesheet" href="product-detail.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand">
+        <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="brand-logo">
+        <span class="brand-text">Roshan Packaging</span>
+      </a>
+
+      <!-- Hamburger Icon (Mobile Only) -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="products.html" class="dropdown-toggle" id="productToggle">Product <i
+              class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search Bar -->
+      <div class="nav-search">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Toggle mobile menu open/close
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Product dropdown for mobile
+    const productToggle = document.getElementById('productToggle');
+    const dropdown = productToggle.parentElement;
+
+    productToggle.addEventListener('click', (e) => {
+      // Prevent normal link on mobile
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  </script>
+
+<!-- PRODUCT DETAIL SECTION -->
+<section class="product-detail-section">
+  <div class="product-detail-container">
+    <!-- Product Image -->
+    <div class="product-image-wrapper">
+      <img id="product-image" src="" alt="Product Image" class="product-image">
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info-wrapper">
+      <h1 id="product-name"></h1>
+      <p class="product-category" id="product-category"></p>
+      <p class="product-type" id="product-type"></p>
+      
+      <h3>Description</h3>
+      <p class="product-description" id="product-description"></p>
+      
+      <h3>Features</h3>
+      <ul class="product-features" id="product-features"></ul>
+      
+      <button id="interested-btn" class="btn-interested">Yes, I'm Interested</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    
+    <!-- Column 1: Logo & Tagline -->
+    <div class="footer-logo">
+      <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="footer-brand-logo">
+      <p>Premium adhesive and packaging solutions for home and industry since 2000.</p>
+      <div class="footer-social">
+      
+      <div class="social-pill-container">
+        <a href="#"><i data-feather="facebook"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="linkedin"></i></a>
+      </div>
+    </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Column 4: Products -->
+<div class="footer-links">
+      <h4>Our Products</h4>
+      <ul>
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+    </div>
+    <!-- Column 3: Contact Info -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p><strong>Address:</strong> G-20, Paresh Industrial Estate, Shankarsheth Road, Pune-411037, India</p>
+      <p><strong>Email:</strong> sales@roshanpackaging.com</p>
+      <p><strong>Phone:</strong> +91 9370099995</p>
+    </div>
+
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Roshan Packaging. All rights reserved.  <br>Developed by DW Innovation Pvt. Ltd.</p>
+</footer>
+
+<a href="https://wa.me/9371699995" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chat with us on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+       alt="WhatsApp Chat" />
+</a>
+
+<!-- Product Data -->
+<script src="product-data.js"></script>
+<!-- Product Detail Script -->
+<script src="product-detail.js"></script>
+<!-- Search Script -->
+<script src="search.js"></script>
+<script>
+  feather.replace();
+</script>
+</body>
+</html>

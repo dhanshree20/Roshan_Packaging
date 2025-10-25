@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Products | Roshan Packaging</title>
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand">
+        <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="brand-logo">
+        <span class="brand-text">Roshan Packaging</span>
+      </a>
+
+      <!-- Hamburger Icon (Mobile Only) -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="products.html" class="dropdown-toggle" id="productToggle">Product <i
+              class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search Bar -->
+      <div class="nav-search">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Toggle mobile menu open/close
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Product dropdown for mobile
+    const productToggle = document.getElementById('productToggle');
+    const dropdown = productToggle.parentElement;
+
+    productToggle.addEventListener('click', (e) => {
+      // Prevent normal link on mobile
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  </script>
+
+ <!-- HERO SECTION -->
+<section class="product-hero">
+  <div class="hero-content">
+    <h1>Our Product Range</h1>
+    <p>High-performance adhesive and protection solutions for every packaging need.</p>
+  </div>
+</section>
+
+
+<!-- CATEGORY SIDEBAR OVERLAY (Mobile Only) -->
+<div class="category-overlay" id="categoryOverlay"></div>
+
+<!-- PRODUCTS CONTAINER - SIDEBAR + GRID -->
+<div class="products-container">
+  
+  <!-- CATEGORY HAMBURGER (Mobile Only) -->
+  <div class="category-hamburger-product" id="categoryHamburger">
+    <i class="fas fa-bars"></i>
+    <span>Filters</span>
+  </div>
+
+  <!-- LEFT SIDEBAR - CATEGORIES -->
+  <aside class="categories-sidebar" id="categoriesSidebar">
+    <!-- Close Button for Mobile -->
+    <!-- <button class="category-close" id="categoryClose">
+      <i class="fas fa-times"></i>
+    </button> -->
+    <h3>Categories</h3>
+    
+    <!-- Packaging Category -->
+    <div class="category-item">
+      <button class="category-btn" data-category="packaging">
+        <span>Packaging Tape</span>
+        <span class="expand-icon">▼</span>
+      </button>
+      <ul class="subcategories" id="packaging-subcats">
+        <li data-subfilter="aluminium-foil"><a href="#" class="subcat-link">Aluminium Foil</a></li>
+        <li class="bopp-parent">
+          <button class="bopp-toggle">
+            <span>BOPP</span>
+            <span class="bopp-expand-icon">▼</span>
+          </button>
+          <ul class="nested-subcats" id="bopp-nested">
+            <li data-subfilter="bopp-transparent"><a href="#" class="subcat-link">Transparent</a></li>
+            <li data-subfilter="bopp-brown"><a href="#" class="subcat-link">Brown</a></li>
+            <li data-subfilter="bopp-hotmelt"><a href="#" class="subcat-link">Hot Melt</a></li>
+            <li data-subfilter="bopp-milky"><a href="#" class="subcat-link">Milky</a></li>
+            <li data-subfilter="bopp-printed"><a href="#" class="subcat-link">Printed</a></li>
+            <li data-subfilter="bopp-rubber"><a href="#" class="subcat-link">Rubber Based</a></li>
+          </ul>
+        </li>
+        <li data-subfilter="cross-filament"><a href="#" class="subcat-link">Cross Filament</a></li>
+        <li data-subfilter="duct-tape"><a href="#" class="subcat-link">Duct Tape</a></li>
+        <li data-subfilter="monofilament"><a href="#" class="subcat-link">Monofilament</a></li>
+        <li data-subfilter="paper-reinforced"><a href="#" class="subcat-link">Paper Reinforced</a></li>
+        <li data-subfilter="pharmacell"><a href="#" class="subcat-link">PharmaCell</a></li>
+        <li data-subfilter="security"><a href="#" class="subcat-link">Security</a></li>
+      </ul>
+    </div>
+
+    <!-- Double Side Category -->
+    <div class="category-item">
+      <button class="category-btn" data-category="double">
+        <span>Double Sided Tape</span>
+        <span class="expand-icon">▼</span>
+      </button>
+      <ul class="subcategories" id="double-subcats">
+        <li class="aft-parent">
+          <button class="aft-toggle">
+            <span>AFT (Acrylic Foam Tape)</span>
+            <span class="aft-expand-icon">▼</span>
+          </button>
+          <ul class="nested-subcats" id="aft-nested">
+            <li data-subfilter="aft-clear"><a href="#" class="subcat-link">Clear</a></li>
+            <li data-subfilter="aft-grey"><a href="#" class="subcat-link">Grey</a></li>
+          </ul>
+        </li>
+        <li class="foam-parent">
+          <button class="foam-toggle">
+            <span>Foam Tape</span>
+            <span class="foam-expand-icon">▼</span>
+          </button>
+          <ul class="nested-subcats" id="foam-nested">
+            <li data-subfilter="foam-blue-black"><a href="#" class="subcat-link">Blue Black</a></li>
+            <li data-subfilter="foam-green-black"><a href="#" class="subcat-link">Green Black</a></li>
+            <li data-subfilter="foam-mirror-mount"><a href="#" class="subcat-link">Mirror Mount Tape</a></li>
+            <li data-subfilter="foam-red-black"><a href="#" class="subcat-link">Red Black</a></li>
+            <li data-subfilter="foam-yellow-white"><a href="#" class="subcat-link">Yellow White</a></li>
+          </ul>
+        </li>
+        <li data-subfilter="red-pet"><a href="#" class="subcat-link">Red Pet Tape</a></li>
+        <li data-subfilter="tissue"><a href="#" class="subcat-link">Tissue Tape</a></li>
+        <li data-subfilter="transfer"><a href="#" class="subcat-link">Transfer Tape</a></li>
+      </ul>
+    </div>
+
+    <!-- Insulation Category -->
+    <div class="category-item">
+      <button class="category-btn" data-category="insulation">
+        <span>Insulation Tape</span>
+        <span class="expand-icon">▼</span>
+      </button>
+      <ul class="subcategories" id="insulation-subcats">
+        <li data-subfilter="blue-tct"><a href="#" class="subcat-link">Blue TCT</a></li>
+        <li data-subfilter="kapton"><a href="#" class="subcat-link">Kapton</a></li>
+        <li data-subfilter="nitto-923s"><a href="#" class="subcat-link">Nitto 923S</a></li>
+        <li data-subfilter="pvc"><a href="#" class="subcat-link">PVC</a></li>
+        <li data-subfilter="self-amalgamating"><a href="#" class="subcat-link">Self-Amalgamating Tape</a></li>
+      </ul>
+    </div>
+
+    <!-- Protection Category -->
+    <div class="category-item">
+      <button class="category-btn" data-category="protection">
+        <span>Protection Tape</span>
+        <span class="expand-icon">▼</span>
+      </button>
+      <ul class="subcategories" id="protection-subcats">
+        <li data-subfilter="spt-blue"><a href="#" class="subcat-link">SPT Blue</a></li>
+        <li data-subfilter="spt-bw"><a href="#" class="subcat-link">SPT BW</a></li>
+        <li data-subfilter="spt-tr"><a href="#" class="subcat-link">SPT TR</a></li>
+      </ul>
+    </div>
+
+    <!-- Safety Category -->
+    <div class="category-item">
+      <button class="category-btn" data-category="safety">
+        <span>Safety Tapes</span>
+        <span class="expand-icon">▼</span>
+      </button>
+      <ul class="subcategories" id="safety-subcats">
+        <li data-subfilter="anti-skit"><a href="#" class="subcat-link">Anti-Skit</a></li>
+        <li data-subfilter="floor-marking"><a href="#" class="subcat-link">Floor Marking</a></li>
+        <li data-subfilter="security"><a href="#" class="subcat-link">Security</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- RIGHT SIDE - PRODUCT GRID -->
+  <section class="product-grid">
+  
+  <!-- PACKAGING PRODUCTS - BOPP -->
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-transparent" data-product-id="1">
+    <img src="Final/PACKAGING/BOPP/Transparent/1.jpg" alt="Clear BOPP Tape">
+    <h3>Transparent BOPP Tape</h3>
+    <p>Crystal clear adhesive tape with superior clarity.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-brown" data-product-id="2">
+    <img src="Final/PACKAGING/BOPP/Brown/USAGE.webp" alt="Brown BOPP Tape">
+    <h3>Brown BOPP Tape</h3>
+    <p>Durable and strong brown packaging tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-hotmelt" data-product-id="3">
+    <img src="Final/PACKAGING/BOPP/Hotmelt/Product.jpeg" alt="Hot Melt BOPP Tape">
+    <h3>Hot Melt BOPP Tape</h3>
+    <p>High-temperature resistant hot melt adhesive tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-milky" data-product-id="4">
+    <img src="Final/PACKAGING/BOPP/Milky/Product.jpg" alt="Milky BOPP Tape">
+    <h3>Milky BOPP Tape</h3>
+    <p>Translucent milky white packaging tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-printed" data-product-id="5">
+    <img src="Final/PACKAGING/BOPP/Printed/Product.avif" alt="Printed BOPP Tape">
+    <h3>Printed BOPP Tape</h3>
+    <p>Custom printed adhesive tape for branding.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="bopp-rubber" data-product-id="6">
+    <img src="Final/PACKAGING/BOPP/Rubber Based/Product.jpg" alt="Rubber Based BOPP Tape">
+    <h3>Rubber Based BOPP Tape</h3>
+    <p>Strong rubber-based BOPP packaging tape.</p>
+  </div>
+
+  <!-- PACKAGING PRODUCTS - OTHERS -->
+  <div class="product-card" data-category="packaging" data-subcategory="aluminium-foil" data-product-id="7">
+    <img src="Final/PACKAGING/ALUMINIUM FOIL/1.jpg" alt="Aluminium Foil Tape">
+    <h3>Aluminium Foil Tape</h3>
+    <p>High temperature resistant foil tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="duct-tape" data-product-id="8">
+    <img src="Final/PACKAGING/DUCK TAPE/1.webp" alt="Duct Tape">
+    <h3>Premium Duct Tape</h3>
+    <p>Heavy-duty waterproof duct tape for all surfaces.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="cross-filament" data-product-id="9">
+    <img src="Final/PACKAGING/CROSS FILAMENT/1.webp" alt="Cross Filament Tape">
+    <h3>Cross Filament Tape</h3>
+    <p>Strong cross-filament reinforced tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="monofilament" data-product-id="10">
+    <img src="Final/PACKAGING/MONO FILAMENT/1.webp" alt="Monofilament Tape">
+    <h3>Monofilament Tape</h3>
+    <p>Single filament reinforced adhesive tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="paper-reinforced" data-product-id="11">
+    <img src="Final/PACKAGING/PAPER REINFORCE/1.webp" alt="Paper Reinforced Tape">
+    <h3>Paper Reinforced Tape</h3>
+    <p>Eco-friendly paper reinforced packaging tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="pharmacell" data-product-id="12">
+    <img src="Final/PACKAGING/PARMACELL/1.jpg" alt="PharmaCell Tape">
+    <h3>PharmaCell Tape</h3>
+    <p>Specialized pharmaceutical grade adhesive tape.</p>
+  </div>
+  <div class="product-card" data-category="packaging" data-subcategory="security" data-product-id="13">
+    <img src="Final/PACKAGING/SECURITY/1.jpg" alt="Security Tape">
+    <h3>Security Tape</h3>
+    <p>Tamper-evident security adhesive tape.</p>
+  </div>
+
+  <!-- DOUBLE SIDED PRODUCTS - AFT -->
+  <div class="product-card" data-category="double" data-subcategory="aft-clear" data-product-id="14">
+    <img src="Final/Double Sided/AFT/Clear.jpg" alt="AFT Clear">
+    <h3>AFT - Clear</h3>
+    <p>Clear acrylic foam tape for strong bonding.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="aft-grey" data-product-id="15">
+    <img src="Final/Double Sided/AFT/Grey.jpg" alt="AFT Grey">
+    <h3>AFT - Grey</h3>
+    <p>Grey acrylic foam double-sided tape.</p>
+  </div>
+
+  <!-- DOUBLE SIDED PRODUCTS - FOAM -->
+  <div class="product-card" data-category="double" data-subcategory="foam-blue-black" data-product-id="16">
+    <img src="Final/Double Sided/FOAM/BLUE BLACK/1.jpg" alt="Blue Black Foam Tape">
+    <h3>Foam Tape - Blue Black</h3>
+    <p>Blue and black colored foam tape for bonding.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="foam-green-black" data-product-id="17">
+    <img src="Final/Double Sided/FOAM/GREEN BLACK/GREEN BLACK.jpg" alt="Green Black Foam Tape">
+    <h3>Foam Tape - Green Black</h3>
+    <p>Green and black foam tape for mounting.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="foam-mirror-mount" data-product-id="18">
+    <img src="Final/Double Sided/FOAM/MIRROR MOUNT TAPE/1.jpg" alt="Mirror Mount Tape">
+    <h3>Foam Tape - Mirror Mount</h3>
+    <p>Specialized foam tape for mirror mounting.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="foam-red-black" data-product-id="19">
+    <img src="Final/Double Sided/FOAM/RED BLACK/1.jpg" alt="Red Black Foam Tape">
+    <h3>Foam Tape - Red Black</h3>
+    <p>Red and black foam bonding tape.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="foam-yellow-white" data-product-id="20">
+    <img src="Final/Double Sided/FOAM/YELLOW WHITE/1.jpg" alt="Yellow White Foam Tape">
+    <h3>Foam Tape - Yellow White</h3>
+    <p>Yellow and white foam tape for various applications.</p>
+  </div>
+
+  <!-- DOUBLE SIDED PRODUCTS - OTHER -->
+  <div class="product-card" data-category="double" data-subcategory="red-pet" data-product-id="21">
+    <img src="Final/Double Sided/Red pet tape/Product.jpeg" alt="Red Pet Tape">
+    <h3>Red Pet Tape</h3>
+    <p>High-performance polyester double-sided tape.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="tissue" data-product-id="22">
+    <img src="Final/Double Sided/Tissue tape/Product.webp" alt="Tissue Double Sided Tape">
+    <h3>Tissue Tape</h3>
+    <p>Thin tissue-based double-sided adhesive tape.</p>
+  </div>
+  <div class="product-card" data-category="double" data-subcategory="transfer" data-product-id="23">
+    <img src="Final/Double Sided/Transfer tape/Product.webp" alt="Transfer Tape">
+    <h3>Transfer Tape</h3>
+    <p>Professional transfer tape for decals and graphics.</p>
+  </div>
+
+  <!-- INSULATION PRODUCTS -->
+  <div class="product-card" data-category="insulation" data-subcategory="blue-tct" data-product-id="24">
+    <img src="Final/Insulation/BLUE TCT/USAGE.jpg" alt="Blue TCT">
+    <h3>Blue TCT</h3>
+    <p>High-temperature insulation tape for electrical applications.</p>
+  </div>
+  <div class="product-card" data-category="insulation" data-subcategory="kapton" data-product-id="25">
+    <img src="Final/Insulation/KAPTON/1.jpg" alt="Kapton Tape">
+    <h3>Kapton</h3>
+    <p>High-temperature kapton insulation tape for electronics.</p>
+  </div>
+  <div class="product-card" data-category="insulation" data-subcategory="nitto-923s" data-product-id="26">
+    <img src="Final/Insulation/NITTO 923s/1.jpg" alt="Nitto 923S">
+    <h3>Nitto 923S</h3>
+    <p>Professional polyester glass cloth insulation tape.</p>
+  </div>
+  <div class="product-card" data-category="insulation" data-subcategory="pvc" data-product-id="27">
+    <img src="Final/Insulation/PVC/Product.webp" alt="PVC Tape">
+    <h3>PVC</h3>
+    <p>Professional PVC insulation tape for electrical applications.</p>
+  </div>
+  <div class="product-card" data-category="insulation" data-subcategory="self-amalgamating" data-product-id="28">
+    <img src="Final/Insulation/self amalgamating tape/Product.jpg" alt="Self-Amalgamating Tape">
+    <h3>Self-Amalgamating Tape</h3>
+    <p>Self-fusing silicone tape for electrical sealing.</p>
+  </div>
+
+  <!-- PROTECTION PRODUCTS -->
+  <div class="product-card" data-category="protection" data-subcategory="spt-blue" data-product-id="29">
+    <img src="Final/Protection/SPT blue/Product.jpeg" alt="SPT Blue">
+    <h3>SPT Blue</h3>
+    <p>Blue protective tape for surface protection.</p>
+  </div>
+  <div class="product-card" data-category="protection" data-subcategory="spt-bw" data-product-id="30">
+    <img src="Final/Protection/SPT BW/1.webp" alt="SPT BW">
+    <h3>SPT BW</h3>
+    <p>Black and white protection tape for marking.</p>
+  </div>
+  <div class="product-card" data-category="protection" data-subcategory="spt-tr" data-product-id="31">
+    <img src="Final/Protection/SPT TR/1.jpg" alt="SPT TR">
+    <h3>SPT TR</h3>
+    <p>Transparent protective tape for all surfaces.</p>
+  </div>
+
+  <!-- SAFETY PRODUCTS -->
+  <div class="product-card" data-category="safety" data-subcategory="anti-skit" data-product-id="32">
+    <img src="Final/SAFETY/ANTI SKIT/1.webp" alt="Anti-Skit">
+    <h3>Anti-Skit</h3>
+    <p>Non-slip safety tape for hazard prevention.</p>
+  </div>
+  <div class="product-card" data-category="safety" data-subcategory="floor-marking" data-product-id="33">
+    <img src="Final/SAFETY/FLOOR MARKING/1.jpg" alt="Floor Marking">
+    <h3>Floor Marking</h3>
+    <p>High-visibility floor marking and safety tape.</p>
+  </div>
+  <div class="product-card" data-category="safety" data-subcategory="security" data-product-id="34">
+    <img src="Final/SAFETY/SECURITY/1.jpg" alt="Security">
+    <h3>Security</h3>
+    <p>Reflective safety tape for security markings.</p>
+  </div>
+
+</section>
+</div>
+
+<script>
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const subcatLinks = document.querySelectorAll('.subcat-link');
+  const products = document.querySelectorAll('.product-card');
+
+  // Toggle category subcategories
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const categoryItem = btn.closest('.category-item');
+      const subcategories = categoryItem.querySelector('.subcategories');
+      const expandIcon = btn.querySelector('.expand-icon');
+      
+      subcategories.classList.toggle('show');
+      expandIcon.classList.toggle('rotated');
+    });
+  });
+
+  // Filter products by subcategory
+  subcatLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const subfilter = link.closest('li').dataset.subfilter;
+      
+      products.forEach(p => {
+        p.style.display = (p.dataset.subcategory === subfilter) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Navigate to product detail on product card click
+  products.forEach(card => {
+    card.addEventListener('click', () => {
+      const productId = card.dataset.productId;
+      window.location.href = `product-detail.html?id=${productId}`;
+    });
+    card.style.cursor = 'pointer';
+  });
+
+  // Show packaging products by default
+  products.forEach(p => {
+    p.style.display = (p.dataset.category === 'packaging') ? 'block' : 'none';
+  });
+
+  // BOPP toggle functionality
+  const boppToggle = document.querySelector('.bopp-toggle');
+  if (boppToggle) {
+    boppToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const boppNested = document.getElementById('bopp-nested');
+      const boppIcon = boppToggle.querySelector('.bopp-expand-icon');
+      
+      boppNested.classList.toggle('show');
+      boppIcon.classList.toggle('rotated');
+    });
+  }
+
+  // AFT toggle functionality
+  const aftToggle = document.querySelector('.aft-toggle');
+  if (aftToggle) {
+    aftToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const aftNested = document.getElementById('aft-nested');
+      const aftIcon = aftToggle.querySelector('.aft-expand-icon');
+      
+      aftNested.classList.toggle('show');
+      aftIcon.classList.toggle('rotated');
+    });
+  }
+
+  // Foam toggle functionality
+  const foamToggle = document.querySelector('.foam-toggle');
+  if (foamToggle) {
+    foamToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const foamNested = document.getElementById('foam-nested');
+      const foamIcon = foamToggle.querySelector('.foam-expand-icon');
+      
+      foamNested.classList.toggle('show');
+      foamIcon.classList.toggle('rotated');
+    });
+  }
+
+  // Expand packaging category by default
+  const packagingSubcats = document.getElementById('packaging-subcats');
+  if (packagingSubcats) {
+    packagingSubcats.classList.add('show');
+    const packagingBtn = document.querySelector('[data-category="packaging"] .expand-icon');
+    if (packagingBtn) packagingBtn.classList.add('rotated');
+  }
+
+  // Expand BOPP by default
+  const boppNested = document.getElementById('bopp-nested');
+  if (boppNested) {
+    boppNested.classList.add('show');
+    const boppIcon = document.querySelector('.bopp-expand-icon');
+    if (boppIcon) boppIcon.classList.add('rotated');
+  }
+
+  // ===== CATEGORY HAMBURGER MENU FUNCTIONALITY =====
+  const categoryHamburger = document.getElementById('categoryHamburger');
+  const categoriesSidebar = document.getElementById('categoriesSidebar');
+  const categoryClose = document.getElementById('categoryClose');
+  const categoryOverlay = document.getElementById('categoryOverlay');
+
+  // Toggle sidebar when hamburger is clicked
+  if (categoryHamburger) {
+    categoryHamburger.addEventListener('click', () => {
+      categoriesSidebar.classList.toggle('open');
+      categoryOverlay.classList.toggle('active');
+    });
+  }
+
+  // Close sidebar when close button is clicked
+  if (categoryClose) {
+    categoryClose.addEventListener('click', () => {
+      categoriesSidebar.classList.remove('open');
+      categoryOverlay.classList.remove('active');
+    });
+  }
+
+  // Close sidebar when overlay is clicked
+  if (categoryOverlay) {
+    categoryOverlay.addEventListener('click', () => {
+      categoriesSidebar.classList.remove('open');
+      categoryOverlay.classList.remove('active');
+    });
+  }
+
+  // Close sidebar when a category is clicked (on mobile)
+  const categoryBtnsNew = document.querySelectorAll('.category-btn');
+  categoryBtnsNew.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Only close on mobile (screen width <= 768px)
+      if (window.innerWidth <= 768) {
+        // Small delay to let the category expand first
+        setTimeout(() => {
+          // Don't auto-close, let user explore
+        }, 100);
+      }
+    });
+  });
+
+</script>
+
+<script>
+  // ===== SHOW PRODUCTS BASED ON CATEGORY FROM URL =====
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedCategory = urlParams.get('category');
+
+  if (selectedCategory) {
+    // Hide all products first
+    products.forEach(p => {
+      p.style.display = 'none';
+    });
+
+    // Show only selected category products
+    products.forEach(p => {
+      if (p.dataset.category === selectedCategory) {
+        p.style.display = 'block';
+      }
+    });
+
+    // Expand the correct sidebar section
+    const allSubcats = document.querySelectorAll('.subcategories');
+    allSubcats.forEach(sub => sub.classList.remove('show'));
+    const allIcons = document.querySelectorAll('.expand-icon');
+    allIcons.forEach(icon => icon.classList.remove('rotated'));
+
+    const targetBtn = document.querySelector(`.category-btn[data-category="${selectedCategory}"]`);
+    const targetSub = document.getElementById(`${selectedCategory}-subcats`);
+    if (targetSub && targetBtn) {
+      targetSub.classList.add('show');
+      const expandIcon = targetBtn.querySelector('.expand-icon');
+      if (expandIcon) expandIcon.classList.add('rotated');
+    }
+  }
+</script>
+
+
+  <!-- ABOUT PAGE CTA SECTION -->
+<section class="about-cta">
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <h2>Let’s Build Strong Bonds Together</h2>
+    <p>From industrial packaging to everyday use — Roshan Packaging delivers adhesive solutions you can trust.</p>
+    <button class="btn-primary">Get in Touch</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <!-- Column 1: Logo & Tagline -->
+    <div class="footer-logo">
+      <img src="videos/logo.jpg" alt="Roshan Packaging Logo" class="footer-brand-logo">
+      <p>Premium adhesive and packaging solutions for home and industry since 2000.</p>
+      <div class="footer-social">
+        <div class="social-pill-container">
+          <a href="#"><i data-feather="facebook"></i></a>
+          <a href="#"><i data-feather="twitter"></i></a>
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Our Products -->
+    <div class="footer-links">
+      <h4>Our Products</h4>
+      <ul>
+  <li><a href="products.html?category=double">Double-Sided Tape</a></li>
+  <li><a href="products.html?category=insulation">Insulation Tape</a></li>
+  <li><a href="products.html?category=packaging">Packaging Tape</a></li>
+  <li><a href="products.html?category=protection">Protection Tape</a></li>
+  <li><a href="products.html?category=safety">Safety Tape</a></li>
+</ul>
+    </div>
+
+    <!-- Column 4: Contact Info -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p><strong>Address:</strong> G-20, Paresh Industrial Estate, Shankarsheth Road, Pune-411037, India</p>
+      <p><strong>Email:</strong> sales@roshanpackaging.com</p>
+      <p><strong>Phone:</strong> +91 9370099995</p>
+      <p><strong>Phone:</strong> +91 7385190995</p>
+    </div>
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Roshan Packaging. All rights reserved. <br>Developed by DW Innovation Pvt. Ltd.</p>
+</footer>
+
+
+<script src="navbar.js"></script>
+<script>
+  feather.replace();
+</script>
+
+<!-- Product Data and Search Scripts -->
+<script src="product-data.js"></script>
+<script src="search.js"></script>
+
+<a href="https://wa.me/9371699995" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chat with us on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+       alt="WhatsApp Chat" />
+</a>
+</body>
+</html>
