@@ -264,10 +264,10 @@ const products = {
     image: "Final/PACKAGING/PARMACELL/1.jpg",
     description: "Permacel P-254  - are primarily used for paint testing. A process of testing the adhesive strength of any paint by making use of such kind of a tape in the process.",
     features: [
-      "Uniform adhesion strength ensures consistent and repeatable test results.",
-      "Clean removal without leaving residue, preserving the integrity of the painted surface.",
-      "Smooth polyester film backing allows precise cutting and easy application.",
-      "Stable tack and peel strength that meets standardized paint adhesion test requirements (e.g., ASTM D3359).",
+      "Uniform adhesion strength",
+      "Clean removal",
+      "Smooth film backing",
+      "Stable tack strength",
     ],
     specifications: {
       width: "24mm, 48mm",
